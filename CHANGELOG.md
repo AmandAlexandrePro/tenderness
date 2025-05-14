@@ -34,7 +34,7 @@
                 <li>Ajout de la catégorie <code>Initialisation de la base de données</code></li>
             </li>
             <li>
-                <h3>/index.php</h3>
+                <h3>/routes/index.php</h3>
                 <ul>
                     <li>Ajout de l'exécution de la fonction <code>session_start</code> permettant de commencer automatiquement la session</li>
                     <li>Ajout de la navigation vers le panier dans la barre de navigation</li>
