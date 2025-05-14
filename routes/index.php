@@ -7,6 +7,7 @@
 <html lang="fr">
 
 <?php
+session_start();
 function shuffle_return($array)
 {
     global $base, $script;
@@ -43,7 +44,6 @@ function shuffle_return($array)
         }
 
         span,
-        input,
         textarea {
             font-family: OpenMoji, sans-serif;
         }
@@ -75,12 +75,20 @@ function shuffle_return($array)
                     <li><a class="hover:text-white/75 transition-all ease-in-out duration-200" href="/nous-contacter">Nous contacter</a></li>
                     <li><a class="hover:text-white/75 transition-all ease-in-out duration-200" href="/a-propos-de-nous">À propos de nous</a></li>
                 </ul>
+                <a class="md:inline-flex hidden text-3xl" href="/panier">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
                 <div class="contents">
                     <input type="checkbox" id="menuToggle" class="peer hidden" />
-                    <label for="menuToggle" class="md:hidden cursor-pointer text-white focus:outline-none z-50 relative w-8 h-8">
-                        <i class="fas fa-bars text-3xl absolute inset-0"></i>
+                    <label for="menuToggle" class="md:hidden cursor-pointer text-white focus:outline-none relative h-8 text-3xl z-50">
+                        <div class="flex flex-row gap-6">
+                            <a href="/panier">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                            <i class="fas fa-bars"></i>
+                        </div>
                     </label>
-                    <ul class="hidden flex-col items-center space-y-4 bg-black text-white py-4 px-4 absolute inset-x-0 top-0 peer-checked:flex md:!hidden">
+                    <ul class="hidden flex-col items-center space-y-4 bg-black text-white py-4 px-4 absolute inset-x-0 top-0 peer-checked:flex md:!hidden z-40">
                         <li><a href="/realiste" class="cursor-pointer hover:text-white/75 transition-all ease-in-out duration-200">Réaliste</a></li>
                         <li><a href="/viva-pinata" class="cursor-pointer hover:text-white/75 transition-all ease-in-out duration-200">Viva Piñata</a></li>
                         <li><a href="/a-propos-de-nous" class="cursor-pointer hover:text-white/75 transition-all ease-in-out duration-200">À propos de nous</a></li>
@@ -123,7 +131,11 @@ function shuffle_return($array)
     <script>
         window.addEventListener("DOMContentLoaded", function() {
             document.title = "TenderNess - <?= $titre ?>"
-        })
+        });
+        // Fix erreur : unable to modify headers after session_start()
+        <?php if ((isset($location) == true ? (is_string($location) == true ? empty($location) != true : false) == true : false) == true) : ?>
+            window.location = "<?= $location ?>";
+        <?php endif; ?>
     </script>
 </body>
 

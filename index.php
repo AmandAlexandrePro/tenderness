@@ -4,7 +4,7 @@
   file, You can obtain one at http://mozilla.org/MPL/2.0/.
   This Source Code Form is "Incompatible With Secondary Licenses", as
   defined by the Mozilla Public License, v. 2.0.*/
-$pathname = $_SERVER["REQUEST_URI"];
+$pathname = parse_url((isset($_SERVER["HTTPS"]) ? "https" : "http") . "://{$_SERVER["HTTP_HOST"]}{$_SERVER["REQUEST_URI"]}", PHP_URL_PATH);
 if ((empty($pathname) != true ? strlen($pathname) < 2 : true) == true)
     $pathname = "/index";
 else if (str_ends_with($pathname, "/") == true)

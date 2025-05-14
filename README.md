@@ -126,6 +126,10 @@
     <a name="readme-body-setup"></a>
         <h3>Installation</h3>
         <p><strong>Lancement</strong> du <strong>Serveur WEB</strong> avec la commande : <code>php -S localhost:8000 -t ./routes .\index.php</code></p>
+    <a name="readme-body-notes"></a>
+        <h3>Initialisation de la base de données</h3>
+        <p><code>php routes/database/setup.php</code> permet d'initialiser la base de données utilisé dans le site</p>
+        <h4><strong>Attention</strong> : Le Système de Gestion de Base de Données (<code>SGBD</code>) utilisé est <code>MySQL</code>.<br>Il est nécessaire de modifier la configuration du fichier <code>routes/database/initial.php</code> avant initialisation de la base de données !</h4>
 </div>
 <a name="readme-footer"></a><p id="readme-footer" align="center">CL 2025 <a id="readme-footer-repo" href="https://github.com/AmandAlexandrePro/tenderness">TenderNess</a><br>&lt;/&gt; et 🖼 avec ❤ par <a id="readme-footer-author" href="https://github.com/AmandAlexandrePro">AMAND Alexandre</a> et les <a id="readme-footer-contributors" href="https://github.com/AmandAlexandrePro/tenderness/graphs/contributors">contributeurs</a>.</p>
 <a name="bottom"></a>
