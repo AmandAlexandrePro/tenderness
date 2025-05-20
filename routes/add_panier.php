@@ -5,7 +5,6 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "database" . DIRECTORY_SEPARATOR . 
 $location = "/";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    print_r($_SERVER["REQUEST_URI"]);
     $location = "javascript://history.go(-1)";
     if (isset($_GET["produit"]) == true) {
         $id = intval($_GET["produit"]);
@@ -17,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     $quantiter = intval($_GET["quantiter"]);
                     if ((is_int($quantiter) == true ? $quantiter < 0 || $quantiter > 0 : false) != true) $quantiter = 1;
                 } else $quantiter = 1;
+                if ((isset($_SESSION["panier"]) == true ? is_array($_SESSION["panier"]) == true : false) != true) $_SESSION["panier"] =[];
                 if ((isset($_SESSION["panier"]) == true ? is_array($_SESSION["panier"]) == true : false) == true) {
                     if (empty($_SESSION["panier"]) == true) $_SESSION["panier"] = [];
                     else {

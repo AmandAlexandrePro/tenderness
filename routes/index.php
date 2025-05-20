@@ -78,12 +78,18 @@ function shuffle_return($array)
                 <a class="md:inline-flex hidden text-3xl" href="/panier">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
+                <a class="md:inline-flex hidden text-3xl" href="/commentaires">
+                    <i class="fa-solid fa-comment"></i>
+                </a>
                 <div class="contents">
                     <input type="checkbox" id="menuToggle" class="peer hidden" />
                     <label for="menuToggle" class="md:hidden cursor-pointer text-white focus:outline-none relative h-8 text-3xl z-50">
                         <div class="flex flex-row gap-6">
                             <a href="/panier">
                                 <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                            <a href="/commentaires">
+                                <i class="fa-solid fa-comment"></i>
                             </a>
                             <i class="fas fa-bars"></i>
                         </div>
